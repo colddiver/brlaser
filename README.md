@@ -1,6 +1,8 @@
 Driver for (some) Brother laster printers
 =========================================
 
+This fork of pdewacht/brlaser provides a couple of fixes to make brlaser compile under FreeBSD.
+
 Most Brother printers support a standard printer language such as PCL
 or PostScript, but not all do.  If you have a monochrome Brother laser
 printer (or multi-function device) and the other open source drivers
@@ -11,6 +13,18 @@ It is known to support these printers:
 * Brother DCP-7030
 * Brother DCP-7055
 * Brother DCP-7065DN
+
+To Compile
+----------
+
+Run the following:
+./autogen.sh
+./configure
+
+Edit the resulting Makefile and replace
+LIBS =  by LIBS = -liconv
+
+You may need to install some dependencies (complete gcc, autoconf, etc.)
 
 Copyright
 ---------
