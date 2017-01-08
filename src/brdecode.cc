@@ -22,6 +22,21 @@
 #include <exception>
 #include <vector>
 
+#include <string>
+#include <sstream>
+
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
+#include <iostream>
+
 namespace {
 
 const size_t MAX_LINE_SIZE = 2000;
@@ -205,7 +220,7 @@ int main(int argc, char *argv[]) {
     int page_num = 1;
     while (read_page()) {
       std::string out_filename = out_prefix
-        + "-" + std::to_string(page_num) + ".pbm";
+        + "-" + patch::to_string(page_num) + ".pbm";
       FILE *out_file = fopen(out_filename.c_str(), "wb");
       if (!out_file) {
         fprintf(stderr, "Can't write file \"%s\"\n", out_filename.c_str());
