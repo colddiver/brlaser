@@ -18,10 +18,12 @@ To Compile
 ----------
 
 Run the following:
-./autogen.sh
-./configure
+
+- ./autogen.sh
+- ./configure
 
 Edit the resulting Makefile and replace
+
 LIBS =  by LIBS = -liconv
 
 You may need to install some dependencies (complete gcc, autoconf, etc.)
