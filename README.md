@@ -21,10 +21,19 @@ Run the following:
 
 - ./autogen.sh
 - ./configure
+- make
+- make install
 
-Edit the resulting Makefile and replace
+If you get the following errors under FreeBSD:
 
-LIBS =  by LIBS = -liconv
+* /brlaser-master/src/main.cc:68: undefined reference to `libiconv_open'
+* /brlaser-master/src/main.cc:78: undefined reference to `libiconv'
+* /brlaser-master/src/main.cc:84: undefined reference to `libiconv_close'
+
+Edit the Makefile and replace
+
+* LIBS =
+* by LIBS = -liconv
 
 You may need to install some dependencies (complete gcc, autoconf, etc.)
 
